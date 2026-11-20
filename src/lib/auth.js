@@ -77,7 +77,7 @@ export const auth = betterAuth({
           let role = user.role;
           if (!role || role === 'customer') {
             const state = await getOAuthState().catch(() => null);
-            if (!role && state?.role) role = state.role;
+            if (PUBLIC_ROLES.includes(state?.role)) role = state.role;
           }
           if (!PUBLIC_ROLES.includes(role)) role = 'customer';
           return {
