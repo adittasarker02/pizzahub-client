@@ -36,15 +36,6 @@ export function MenuBrowser() {
   const { data, loading, error, refetch } = useApi('/menu', { query, auth: false });
   const { data: locData } = useApi('/menu/locations', { auth: false });
 
-  // keep the URL shareable without triggering a navigation
-  useEffect(() => {
-    if (window.location.pathname !== '/menu') return; // never fight an in-flight navigation
-    const p = new URLSearchParams();
-    Object.entries({ ...query, limit: '' }).forEach(([k, v]) => v && v !== 'featured' && !(k === 'page' && v === 1) && p.set(k, v));
-    const qs = p.toString();
-    window.history.replaceState(null, '', qs ? `/menu?${qs}` : '/menu');
-  }, [query]);
-
   const resetPage = (setter) => (v) => { setter(v); setPage(1); };
   const hasFilters = search || category || location || minPrice || maxPrice || sort !== 'featured';
   function clearAll() {
