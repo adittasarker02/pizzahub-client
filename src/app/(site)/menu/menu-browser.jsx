@@ -38,6 +38,7 @@ export function MenuBrowser() {
 
   // keep the URL shareable without triggering a navigation
   useEffect(() => {
+    if (window.location.pathname !== '/menu') return; // never fight an in-flight navigation
     const p = new URLSearchParams();
     Object.entries({ ...query, limit: '' }).forEach(([k, v]) => v && v !== 'featured' && !(k === 'page' && v === 1) && p.set(k, v));
     const qs = p.toString();
