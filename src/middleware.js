@@ -13,5 +13,6 @@ export function middleware(request) {
 }
 
 export const config = {
-  matcher: ['/dashboard/:path*', '/menu/:id+', '/payment/:path*'],
+  // /menu/:id only (single segment, no file extension) + dashboard + payment pages
+  matcher: ['/dashboard/:path*', '/menu/:id([^./]+)', '/payment/:path*'],
 };

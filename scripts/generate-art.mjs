@@ -5,7 +5,7 @@
  */
 import { mkdirSync, writeFileSync } from 'node:fs';
 
-const OUT = new URL('../public/menu/', import.meta.url);
+const OUT = new URL('../public/art/', import.meta.url);
 mkdirSync(OUT, { recursive: true });
 
 // ---------- helpers ----------
