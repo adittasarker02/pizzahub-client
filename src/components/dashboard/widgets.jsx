@@ -29,7 +29,7 @@ export function StatCard({ label, value, icon: Icon, tone = 'red', loading, hint
       <div className="flex items-center justify-between gap-3">
         <div className="min-w-0">
           <p className="text-sm font-medium text-muted-foreground">{label}</p>
-          {loading ? <Skeleton className="mt-2 h-8 w-20" /> : <p className="mt-1 truncate font-display text-3xl font-bold">{value}</p>}
+          {loading ? <Skeleton className="mt-2 h-8 w-20" /> : <p className="mt-1 break-words font-display text-3xl font-bold leading-tight">{value}</p>}
           {hint && !loading && <p className="mt-0.5 text-xs text-muted-foreground">{hint}</p>}
         </div>
         <div className={cn('flex size-12 shrink-0 items-center justify-center rounded-2xl', tones[tone])}><Icon className="size-6" /></div>

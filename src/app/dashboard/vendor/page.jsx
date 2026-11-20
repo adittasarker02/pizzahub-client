@@ -18,7 +18,7 @@ export default function VendorOverview() {
       <PageHeader title="Vendor overview" description="A quick look at your restaurant's menu, orders and plan.">
         <Button asChild><Link href="/dashboard/vendor/items/new">Add menu item</Link></Button>
       </PageHeader>
-      <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-5">
+      <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-5 [&_p.font-display]:text-2xl xl:[&_p.font-display]:text-3xl">
         <StatCard label="Total menu items" value={s?.totalItems} icon={Pizza} loading={loading} />
         <StatCard label="Active items" value={s?.activeItems} icon={UtensilsCrossed} tone="green" loading={loading} hint="Approved & visible" />
         <StatCard label="Pending orders" value={s?.pendingOrders} icon={Clock} tone="orange" loading={loading} />
