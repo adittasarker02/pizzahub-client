@@ -12,6 +12,7 @@ PizzaHub lets customers discover local pizzerias, browse menus and place deliver
 ## Important features
 - Better Auth: email + password and Google OAuth, role selection (Vendor / Customer), admin accounts can never be created through sign-up
 - Role-based dashboards (Vendor, Customer, Admin) guarded **on the server** in layouts + JWT-protected API
+- Navbar shows a single **Dashboard** link that opens the dashboard of the signed-in role
 - Home: animated hero (Framer Motion / `motion`), featured items from the DB, categories, Why Choose PizzaHub, How It Works
 - Browse menu: debounced search, category / location filters, price sorting and range, pagination, loading + empty states
 - Item details with image gallery, order form (delivery date, address, message)
@@ -48,4 +49,4 @@ Google OAuth: in Google Cloud Console create an OAuth client and add the redirec
 ## Challenge requirements
 - **Advanced search & sorting** — `/menu` calls `GET /api/menu?search&category&location&minPrice&maxPrice&sort=price_asc|price_desc|newest|featured&page` (details in the server README).
 - **JWT verification** — Better Auth JWT plugin issues tokens; Express `verifyJWT` verifies them with the public JWKS (`/api/auth/jwks`) and rejects invalid / expired tokens with 401.
-- **Professional appearance** — warm tomato / oven-orange / cream palette, Fraunces + DM Sans typography, sticker-style buttons, gingham accents, original SVG illustrations (`npm run art`).
+- **Professional appearance** — warm tomato / oven-orange / cream palette, Fraunces + DM Sans typography, sticker-style buttons, gingham accents, real food photography, an immersive photo hero with rotating stamp and ticker.
