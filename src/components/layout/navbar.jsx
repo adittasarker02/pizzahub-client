@@ -17,15 +17,6 @@ import { clearToken } from '@/lib/api';
 import { roleHome } from '@/lib/constants';
 import { cn } from '@/lib/utils';
 
-const roleLinks = {
-  customer: [{ href: '/dashboard/customer/orders', label: 'My Orders' }],
-  vendor: [
-    { href: '/dashboard/vendor/items', label: 'My Menu' },
-    { href: '/dashboard/vendor/orders', label: 'Orders' },
-  ],
-  admin: [{ href: '/dashboard/admin', label: 'Admin Panel' }],
-};
-
 export function Navbar() {
   const { data: session, isPending } = useSession();
   const user = session?.user;
@@ -36,9 +27,9 @@ export function Navbar() {
   const links = [
     { href: '/', label: 'Home' },
     { href: '/menu', label: 'Browse Menu' },
-    ...(user ? roleLinks[user.role] || [] : []),
+    ...(user ? [{ href: roleHome(user.role), label: 'Dashboard' }] : []),
   ];
-  const active = (href) => (href === '/' ? pathname === '/' : pathname.startsWith(href));
+  const active = (href) => (href === '/' ? pathname === '/' : href.startsWith('/dashboard') ? pathname.startsWith('/dashboard') : pathname.startsWith(href));
 
   async function logout() {
     await authClient.signOut();
