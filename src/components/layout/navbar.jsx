@@ -27,7 +27,8 @@ export function Navbar() {
   const links = [
     { href: '/', label: 'Home' },
     { href: '/menu', label: 'Browse Menu' },
-    ...(user ? [{ href: roleHome(user.role), label: 'Dashboard' }] : []),
+    // always visible; logged-out visitors are sent to Sign In first, then land on their role's dashboard
+    { href: user ? roleHome(user.role) : '/dashboard', label: 'Dashboard' },
   ];
   const active = (href) => (href === '/' ? pathname === '/' : href.startsWith('/dashboard') ? pathname.startsWith('/dashboard') : pathname.startsWith(href));
 

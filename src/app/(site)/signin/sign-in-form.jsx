@@ -23,7 +23,7 @@ export function SignInForm() {
 
   // already signed in -> go to the right dashboard
   useEffect(() => {
-    if (session?.user && !loading) router.replace(safeRedirect(callbackUrl, roleHome(session.user.role)));
+    if (session?.user && !loading) window.location.replace(safeRedirect(callbackUrl, roleHome(session.user.role)));
   }, [session, loading, callbackUrl, router]);
 
   useEffect(() => {
@@ -49,8 +49,8 @@ export function SignInForm() {
       return;
     }
     toast.success(`Welcome back, ${data?.user?.name?.split(' ')[0] || 'friend'}!`);
-    router.replace(safeRedirect(callbackUrl, roleHome(data?.user?.role)));
-    router.refresh();
+    // hard navigation: avoids the router cache holding the pre-login redirect (e.g. prefetched /dashboard)
+    window.location.assign(safeRedirect(callbackUrl, roleHome(data?.user?.role)));
   }
 
   return (
