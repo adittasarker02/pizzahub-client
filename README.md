@@ -2,9 +2,9 @@
 
 PizzaHub lets customers discover local pizzerias, browse menus and place delivery orders. Vendors publish menu items and manage orders and a Free / Premium subscription. Admins moderate the platform.
 
-- **Live website:** `https://YOUR-CLIENT.vercel.app` _(replace after deploying)_
-- **Client repository:** `https://github.com/YOUR_USERNAME/pizzahub-client`
-- **Server repository:** `https://github.com/YOUR_USERNAME/pizzahub-server`
+-**Live website:** `https://pizzahub-client-rho.vercel.app`
+- **Client repository:** `https://github.com/adittasarker02/pizzahub-client`
+- **Server repository:** `https://github.com/adittasarker02/pizzahub-server`
 
 **Admin login for reviewers:** `admin@pizzahub.com` / `Admin1234` _(change if you seeded different credentials)_
 **Stripe test card:** `4242 4242 4242 4242`, any future expiry, any CVC.
